@@ -272,10 +272,11 @@ go run /abs/path/to/files.md/cmd/backlink/backlink.go
 ```
 
 ### 调整日记时间戳
-把日记文件中的时间戳整体平移 N 小时（换时区后很实用）：
+把日记文件中的 `HH:MM` 时间戳平移 N 小时（换时区后很实用）。可指向单个文件或整个 `journal/` 目录。用 `--from`/`--to`（`dd.mm.YYYY`，含首尾）限定日期范围；用 `--dry-run` 预览：
 ```
-go run /abs/path/to/files.md/cmd/shifttime/shifttime.go
+go run /abs/path/to/files.md/cmd/shifttime/shifttime.go --hours 2 --from 09.08.2025 --to 13.09.2025 --dry-run /abs/path/to/files/journal/
 ```
+去掉 `--dry-run` 即写入更改。不带 `--from`/`--to` 则平移文件中的所有记录。
 
 ## 文档
 [在自己的服务器上部署](docs/your-own-server.md)

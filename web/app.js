@@ -6,7 +6,10 @@ const LATER_PATH = '/Later.md';
 const READ_PATH = '/Read.md';
 const SHOP_PATH = '/Shop.md';
 const WATCH_PATH = '/Watch.md';
-const LOG_PATH = '/archive/Log.txt';
+const LOG_PATH = '/archive/Log.md';
+const CHATLOG_PATH = '/archive/Chatlog.md';   // append-only log of everything added to chat
+// "To Archive" collects records here, one file per year
+const archivePath = () => `/archive/Archive ${new Date().getFullYear()}.md`;
 const OPEN_CHAT_AFTER_IDLE = 60 * 60 * 1000; // ms
 
 let openChatIdleTimer = null;
@@ -260,7 +263,7 @@ async function newFolder() {
 }
 
 function isMetaKey(event) {
-    return event.metaKey || event.ctrlKey || event.altKey;
+    return event.metaKey || event.ctrlKey;
 }
 
 function isSidebarToggleShortcut(event) {
