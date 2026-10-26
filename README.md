@@ -252,6 +252,7 @@ Place [AGENTS.md](https://github.com/zakirullin/cognitive-load/blob/main/web/AGE
 |----------------------------------------|------------------------------|
 | `[`                                    | Insert a link to a file      |  
 | `Cmd+K` / `Ctrl+K`                     | Open file search modal       |
+| `Cmd+Shift+F` / `Ctrl+Shift+F`         | Search in files              |
 | `Cmd+N` / `Ctrl+N`                     | New file                     |
 | `Cmd+M` / `Ctrl+M`                     | Move file                    |
 | `Cmd+D` / `Ctrl+D`                     | Delete file                  |

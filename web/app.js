@@ -748,6 +748,12 @@ window.addEventListener('keydown', async (event) => {
         searchModal.open();
     }
 
+    if (isMetaKey(event) && event.shiftKey && event.code === 'KeyF') {
+        event.preventDefault();
+        event.stopPropagation();
+        searchModal.open('', null, null, true);
+    }
+
     if (isMetaKey(event) && event.key === 'm') {
         event.preventDefault();
         event.stopPropagation();
@@ -787,6 +793,16 @@ document.addEventListener('keydown', (event) => {
 document.addEventListener('keydown', (event) => {
     // TODO cursor shouldn't jump to top once we hit "esc".
     if (event.key === 'Escape') {
+        // Close dialogs even if focus left them (e.g. after alt-tab)
+        const search = document.getElementById('search');
+        const move = document.getElementById('move');
+        if (search.style.display !== 'none' || move.style.display !== 'none') {
+            searchModal.close();
+            moveModal.close();
+            isChat ? chatInput.focus() : currentEditor.focus();
+            return;
+        }
+
         if (chatContainer.style.display !== 'none') {
             const selectedMessages = chat.querySelectorAll('.message.selected');
             if (selectedMessages.length > 0) {

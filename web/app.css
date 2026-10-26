@@ -376,6 +376,37 @@ a:hover {
     border-radius: 5px;
 }
 
+#search-results li.content-match {
+    white-space: normal;
+    word-break: break-word;
+}
+
+.content-match-snippet {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.content-match-snippet mark {
+    background: rgba(255, 196, 0, 0.35);
+    color: inherit;
+    border-radius: 3px;
+}
+
+#search-results .focused .content-match-snippet mark {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.content-match-path {
+    margin-top: 2px;
+    font-size: 0.85em;
+    opacity: 0.6;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .CodeMirror-scroll {
     padding: 2em 0;
 }
@@ -1077,4 +1108,13 @@ pre.HyperMD-codeblock-end {
 #sync-status.bad {
     background: var(--color-neo-orange);
     opacity: 1;
+}
+
+#sidebar, #content {
+    transition: opacity 0.15s;
+}
+
+body:has(#search:not([style*="display: none"])) :is(#sidebar, #content),
+body:has(#move:not([style*="display: none"])) :is(#sidebar, #content) {
+    opacity: 0.4;
 }
