@@ -579,6 +579,16 @@ pre.HyperMD-task-line span.cm-formatting-list-ul.hmd-hidden-token + .cm-formatti
     display: none !important;
 }
 
+.cm-s-hypermd-light pre.HyperMD-codeblock .cm-header {
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
+.cm-s-hypermd-light pre.HyperMD-codeblock span.cm-variable-2,
+.cm-s-hypermd-light pre.HyperMD-codeblock span.cm-variable-3 {
+    color: inherit;
+}
+
 /*Hide (...) in links. Don't hide links after images.
   hmd-image-line comes from the mode (hypermd.js). */
 .CodeMirror pre:not(.hmd-image-line) span.cm-url.hmd-hidden-token.cm-url {
